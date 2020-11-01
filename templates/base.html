@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <title>Format My SQL | Beautify</title>
+    <style type="text/css">
+    nav, button, label{
+    font-family: 'Itim', cursive;
+    }
+    #main_div {
+    margin-top: 15px;
+    }
+    nav {
+    font-size: 18px;
+    }
+    label {
+    font-size: 20px;
+    margin-bottom: 15px;
+    }
+    button {
+    margin-top: 7px;
+    }
+    #about {
+    font-family: 'Itim', cursive;
+    font-size: 18px;
+    }
+    </style>
+  </head>
+  <body>
+    <!-- Image and text -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('about') }}">About</a>
+          </li>
+        </ul>
+        
+      </div>
+      <div class="mx-auto order-0">
+        <a class="navbar-brand mx-auto" href="#">Format My SQL</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+        </ul>
+      </div>
+    </nav>
+    {% block home %}
+    {% endblock home %}
+    {% block about %}
+    {% endblock about %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+    <script type="text/javascript">
+    async function getClipboardContents() {
+    try {
+    const text = await navigator.clipboard.readText();
+    console.log('Pasted content: ', text);
+    document.getElementById("output").value = text;
+    $('.parent').append("<div class='alert alert-success alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Text Pasted.</div>")
+    setTimeout(function() {
+    $(".alert").alert('close');
+    }, 2000);
+    // $('#paste').text('It was a dark and stormy night...');
+    } catch (err) {
+    console.error('Failed to read clipboard contents: ', err);
+    }
+    }
+    async function copyFun() {
+    try {
+    await navigator.clipboard.writeText(document.getElementById("output").value);
+    console.log('copied to clipboard');
+    $('.parent').append("<div class='alert alert-success alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Text coppied.</div>")
+    setTimeout(function() {
+    $(".alert").alert('close');
+    }, 2000);
+    } catch (err) {
+    console.error('Failed to copy: ', err);
+    }
+    }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

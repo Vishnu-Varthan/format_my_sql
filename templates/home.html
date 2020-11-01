@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block home %}
+  <div id="main_div" class="container">
+    {% if data%}
+      <form class="form-horizontal" method="post" action="/home">
+        <div class="parent">
+          <div class="form-group">
+            <label for="output">Paste your sql query:</label>
+            <textarea class="form-control" rows="15" name="output" id="output">{{data}}</textarea>
+            <button type="button" class="btn btn-primary" id="paste" onclick="getClipboardContents()">Paste Query</button>
+            <button type="submit" value="Submit" class="btn btn-success" id="format">Beautify</button>
+            <button type="button" class="btn btn-secondary" id='copy' onclick="copyFun()">Copy Query</button>
+          </div>
+        </form>
+      {% else %}
+        <form class="form-horizontal" method="post" action="/home">
+          <div class="parent">
+            <div class="form-group">
+              <label for="output">Paste your sql query:</label>
+              <textarea class="form-control" rows="15" name="output"  id="output"></textarea>
+              <button type="button" class="btn btn-primary" id="paste" onclick="getClipboardContents()">Paste Query</button>
+              <button type="submit" value="Submit" class="btn btn-success" id="format">Beautify</button>
+              <button type="button" class="btn btn-secondary" id='copy' onclick="copyFun()">Copy Query</button>
+            </div>
+          </form>
+          
+        {% endif %}
+        
+      </div>
+      {%endblock home%}
