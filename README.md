@@ -1,5 +1,7 @@
 # format_my_sql
 
+Basic flask webapp created for formating sql queries
+
 Non validation sqlparser
 website is live in https://formatmysql.herokuapp.com/
 
